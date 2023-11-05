@@ -26,6 +26,7 @@ CREATE TABLE commande_article (
     prix_unitaire DECIMAL(10, 2) NOT NULL,
     CONSTRAINT fk_commande FOREIGN KEY (commande_id) REFERENCES commande (id),
     CONSTRAINT fk_product FOREIGN KEY (products_id) REFERENCES Products (id));
+    
 CREATE TABLE Products (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
