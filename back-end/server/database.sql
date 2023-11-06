@@ -3,17 +3,17 @@ CREATE DATABASE TheBradery
     CHARACTER SET = 'utf8mb4'
     COLLATE 'utf8mb4_general_ci';
 
-CREATE TABLE user (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    pseudo VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
+--CREATE TABLE user (
+    --id INT AUTO_INCREMENT PRIMARY KEY,
+   -- first_name VARCHAR(50) NOT NULL,
+    --last_name VARCHAR(50) NOT NULL,
+    --pseudo VARCHAR(50) NOT NULL,
+    --password VARCHAR(255) NOT NULL
+--);
 
 CREATE TABLE commande (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL, -- Clé étrangère "user"
+    -- user_id INT NOT NULL,  Clé étrangère "user"
     date_commande DATETIME NOT NULL,
     prix_total DECIMAL(10, 2) NOT NULL
 );
