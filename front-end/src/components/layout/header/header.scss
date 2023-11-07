@@ -1,0 +1,35 @@
+/* Header.scss */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  
+    .logo {
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+      }
+    }
+    
+    .title {
+        text-align: center; // Centrez le texte horizontalement
+        flex-grow: 1; // Remplissage automatique pour pousser le titre au milieu
+        font-size: 1.5rem; // Ajustez la taille de la police selon vos préférences
+      }
+  
+    .nav {
+      a {
+        text-decoration: none;
+        color: #fff;
+        margin-left: 2rem;
+      }
+    }
+  }
+  
