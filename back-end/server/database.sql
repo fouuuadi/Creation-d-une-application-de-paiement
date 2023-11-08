@@ -1,4 +1,4 @@
--- Active: 1699130728912@@127.0.0.1@3306@thebradery
+-- Active: 1679153708134@@127.0.0.1@3306@thebradery
 CREATE DATABASE TheBradery
     CHARACTER SET = 'utf8mb4'
     COLLATE 'utf8mb4_general_ci';

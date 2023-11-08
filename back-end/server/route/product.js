@@ -1,13 +1,13 @@
 const express = require("express");
+const router = new express.Router();
 
-const router = express.Router();
-
-
-router.post("/" , async (req, res) => {
-    try{
+router.get("/", async(req, res) => {
+    try {
         console.log(req.body)
-        res.send(200, {content: "ok"})
+        res.send(200, { content: "ok" })
     } catch (e) {
         console.error(e.message)
     }
 })
+
+module.exports = router;
