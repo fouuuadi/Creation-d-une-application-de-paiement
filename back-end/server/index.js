@@ -5,7 +5,9 @@ const thebradery = require("./route/product");
 const router = require("./route/product")
 
 //middleware qui permet les requêtes HTTP
-app.use(cors("*"));
+app.use(cors({
+    origin: 'http://localhost:3000',
+  }));
 
 app.use(router);
 

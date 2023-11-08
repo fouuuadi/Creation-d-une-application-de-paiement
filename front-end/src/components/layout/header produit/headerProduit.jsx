@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./header.scss"; // Importez le fichier SCSS pour les styles
 import Imagelogo from "../../image_comp/imageLogo"
 
 function HeaderProduit() {

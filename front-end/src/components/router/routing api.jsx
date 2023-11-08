@@ -1,7 +1,7 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Home from "../pages/home";
-import Login from "../pages/login";
-import Produits from "../pages/products";
+import Home from "../pages/home/home";
+import Login from "../pages/login/login";
+import Produits from "../pages/product/products";
 
 const AppPaiementRouter = () => {
     return (
