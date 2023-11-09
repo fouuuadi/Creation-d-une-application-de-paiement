@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '../../button/button default';
-import HeaderProduit from "../../layout/header produit/headerProduit"
+import HeaderProduit from "../../layout/header/header_produit/headerProduit"
 import Footer from "../../layout/footer/footer"
+import Panier from '../panier/panier';
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -29,7 +30,8 @@ function ProductList() {
             <p>Prix : {product.price} €</p>
             <p>Quantité maximale : {product.inventory}</p>
             <Button label="Ajoute au panier"
-                    color="green"/>
+                    color="green"
+                    onClick={() => Panier.Addpanier(product)}/>
           </li>
         ))}
       </ul>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Imagelogo from "../../image_comp/imageLogo"
+import Imagelogo from "../../../image_comp/imageLogo"
 
-function HeaderProduit() {
+function HeaderPanier() {
   return (
     <header className="header">
       <div className="logo">
@@ -11,11 +11,11 @@ function HeaderProduit() {
       <h1 className="title">The Bradery</h1>
       <nav className="nav">
         <Link to="/">Home</Link>
-        <Link to="/panier">Panier</Link>
+        <Link to="/produits">Produits</Link>
         <Link to="/login">Connexion</Link>
       </nav>
     </header>
   );
 }
 
-export default HeaderProduit;
+export default HeaderPanier;
