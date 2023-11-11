@@ -3,20 +3,26 @@ import Footer from "../../layout/footer/footer";
 import HeaderPanier from "../../layout/header/header_panier/headerPanier";
 import Button from '../../button/button default';
 
-const Panier = () => {
+const Basket = () => {
 
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
-
+  
   const basketRemove = (produit) => {
     if (produit.quantity > 1) {
-      localStorage.setItem('basket', JSON.stringify(basket.map(p => p.id === produit.id ? { ...p, quantity: p.quantity - 1 } : p)))
-      return setBasket(basket.map(p => p.id === produit.id ? { ...p, quantity: (p.quantity - 1) } : p))
-
+      for (const p of basket) {
+        if (p.id === produit.id) {
+          p.quantity -= 1
+        }
+      }
+      localStorage.setItem("basket", JSON.stringify(basket));
+      setBasket(basket);
     } else {
-      localStorage.setItem('basket', JSON.stringify(basket.filter(b => b.id !== produit.id)))
-      setBasket(basket.filter(b => b.id !== produit.id))
-
+      const basketWithoutProduct = basket.filter(b => b.id !== produit.id);
+      localStorage.setItem('basket', JSON.stringify(basketWithoutProduct));
+      setBasket(basketWithoutProduct);
     }
+
+    window.location.reload();
   }
 
   return (
@@ -30,7 +36,7 @@ const Panier = () => {
           <Button label="Valider ma commande"
                   color="green"/>
         </div>
-        {basket.map((produit) => (
+        {basket && basket.map((produit) => (
           <div key={produit.id} className='cart-container'>
             <div className='cart'>
               <div>
@@ -50,4 +56,4 @@ const Panier = () => {
   );
 };
 
-export default Panier;
+export default Basket;

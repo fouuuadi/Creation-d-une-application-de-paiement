@@ -30,13 +30,22 @@ function ProductList() {
   })
 
   const addInBasket = (produit) => {
-    const alreadyIn = basket.find(p => p.id === produit.id);
-    if (alreadyIn) {
-      localStorage.setItem('basket', JSON.stringify(basket.map(p => p.id === produit.id ? { ...p, quantity: p.quantity + 1 } : p)))
-      return setBasket(basket.map(p => p.id === produit.id ? { ...p, quantity: (p.quantity + 1) } : p))
-    } else {
-      localStorage.setItem('basket', JSON.stringify([...basket, { ...produit, quantity: 1 }]))
-      setBasket([...basket, { ...produit, quantity: 1 }])
+    const alreadyIn = basket.find(p => p.id === produit.id); // si le produit que nous voulons rajouter n'est pas deja dans le panier, alreadyIn sera undefined
+    if (alreadyIn) { // ici, le produit est déjà dans le panier, nous incrémentons sa quantité
+      for (const p of basket) {
+        if (p.id === produit.id) {
+          p.quantity += 1
+        }
+      }
+      localStorage.setItem("basket", JSON.stringify(basket));
+      return setBasket(basket);
+    } else { // ici, le produit sera rajouté pour la première fois dans le panier
+      basket.push({
+        ...produit,
+        quantity: 1
+      }) // le panier existant + le nouveau produit avec la quantité 1
+      localStorage.setItem('basket', JSON.stringify(basket)) // localstorage
+      setBasket(basket) // state
     }
   }
 
