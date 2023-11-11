@@ -17,6 +17,18 @@
 
 }
 
+.title-basket {
+    display: flex;
+    justify-content: center;
+}
+
+.button-commande {
+    display: flex;
+    justify-content: center; 
+    margin-top: 4px; 
+
+}
+
 .trash {
     padding: 12px;
     cursor: pointer;

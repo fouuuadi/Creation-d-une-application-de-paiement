@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from "../../layout/footer/footer";
 import HeaderPanier from "../../layout/header/header_panier/headerPanier";
+import Button from '../../button/button default';
 
 const Panier = () => {
 
@@ -22,7 +23,13 @@ const Panier = () => {
     <div>
       <HeaderPanier />
       <div className='body'>
-        <h1>Votre Panier</h1>
+        <div className='title-basket'>
+          <h1>Votre Panier</h1>
+        </div>
+        <div className='button-commande'>
+          <Button label="Valider ma commande"
+                  color="green"/>
+        </div>
         {basket.map((produit) => (
           <div key={produit.id} className='cart-container'>
             <div className='cart'>

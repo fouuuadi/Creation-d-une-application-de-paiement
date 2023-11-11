@@ -3,6 +3,9 @@ import axios from 'axios';
 import Button from '../../button/button default';
 import HeaderProduit from "../../layout/header/header_produit/headerProduit"
 import Footer from "../../layout/footer/footer"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -41,20 +44,28 @@ function ProductList() {
     <div>
       <HeaderProduit />
       <div className='body'>
-        <h1>Liste des Produits</h1>
-        <ul>
+        <div className='tilte-products'>
+          Liste des Produits
+        </div>
+        <div className='container'>
           {products.map((product) => (
-            <li key={product.id}>
+            <div key={product.id}>
               <h2>{product.name}</h2>
               <p>Prix : {product.price} €</p>
               <p>Quantité maximale : {product.inventory}</p>
               <Button
-                label="Ajoute au panier"
+                label={
+                  <span>
+                    <FontAwesomeIcon icon={faCartPlus} />
+                    Add
+                  </span>
+                }
+                onClick={() => addInBasket(product)}
                 color="green"
-                onClick={() => addInBasket(product)} />
-            </li>
+              />
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
       <Footer />
     </div>
