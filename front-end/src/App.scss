@@ -1,3 +1,11 @@
 @import 'components/layout/footer/footer.scss';
 @import 'components/layout/header/header_home/header.scss';
 @import 'components/pages/product/products.scss';
+@import 'components/pages/panier/paniers.scss';
+
+
+.body {
+    height: calc(100% - 213px);
+    min-height: calc(100vh - 213px);
+    position: relative;
+}
