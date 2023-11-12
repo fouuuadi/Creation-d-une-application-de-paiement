@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Button from '../../button/button default';
 import HeaderProduit from "../../layout/header/header_produit/headerProduit"
-import Footer from "../../layout/footer/footer"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -76,7 +75,6 @@ function ProductList() {
           ))}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import Footer from "../../layout/footer/footer";
+import { Link } from 'react-router-dom';
 import HeaderPanier from "../../layout/header/header_panier/headerPanier";
 import Button from '../../button/button default';
 
 const Basket = () => {
 
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
-  
+
   const basketRemove = (produit) => {
     if (produit.quantity > 1) {
       for (const p of basket) {
@@ -33,8 +33,10 @@ const Basket = () => {
           <h1>Votre Panier</h1>
         </div>
         <div className='button-commande'>
-          <Button label="Valider ma commande"
-                  color="green"/>
+          <Link to='/payment'>
+            <Button label="Valider ma commande"
+              color="green" />
+          </Link>
         </div>
         {basket && basket.map((produit) => (
           <div key={produit.id} className='cart-container'>
@@ -51,7 +53,6 @@ const Basket = () => {
           </div>
         ))}
       </div>
-      <Footer />
     </div>
   );
 };
