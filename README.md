@@ -38,5 +38,4 @@
 **À faire**
 
 - Authentification (Bonus)
-- Une fonction de recherche pour les produits (Bonus)
 - Automatisation: Si possible, fournis des scripts d'automatisation (comme Docker) pour configurer toute la pile.

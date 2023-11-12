@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../../button/button default";
 import HeaderPayment from "../../layout/header/header_paiement/headerPayment";
 
@@ -21,6 +21,20 @@ const Payment = () => {
         // Ajoutez ici la logique pour traiter le paiement avec les données du formulaire
         console.log('Données du formulaire soumises :', formData);
     };
+
+    useEffect(() => {
+        //requête Post pour envoyer les produits a la Bdd
+        axios.post('http://localhost:3001/thebradery/payment')
+          .then((response) => {
+            setProducts(response.data)
+            //console.log(response.data);
+          })
+          .catch((error) => {
+            console.error('Erreur lors de la récupération des produits :', error);
+          });
+      }, []);
+
+
 
     return (
         <div>
