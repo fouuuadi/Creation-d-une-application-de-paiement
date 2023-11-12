@@ -10,7 +10,7 @@ function HeaderPayment() {
       </div>
       <h1 className="title">The Bradery</h1>
       <nav className="nav">
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/panier">Panier</Link>
         <Link to="/produits">Produits</Link>
         <Link to="/login">Connexion</Link>

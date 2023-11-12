@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderPanier from "../../layout/header/header_panier/headerPanier";
 import Button from '../../button/button default';

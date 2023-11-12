@@ -9,7 +9,7 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 function ProductList() {
   const [products, setProducts] = useState([]);
   const [basket, setBasket] = useState(JSON.parse(localStorage.getItem('basket')))
-
+  const [search, setSearch] = useState('');
   useEffect(() => {
     //requête Post pour récupérer les produits depuis la Bdd
     axios.post('http://localhost:3001/thebradery/allProducts')
@@ -48,6 +48,13 @@ function ProductList() {
     }
   }
 
+  //fonction filtrage des produits (Bonus)
+  const filteredProduct = products.filter((product) => {
+    const productName = product.name.toLowerCase(); //retourne la chaîne de caractères product.name en minuscules
+    const query = search.toLowerCase();//retourne le state en minuscules
+    return productName.includes(query);//permer de déterminer
+  })
+
   return (
     <div>
       <HeaderProduit />
@@ -55,8 +62,14 @@ function ProductList() {
         <div className='tilte-products'>
           Liste des Produits
         </div>
+        <input className='search'
+          type='text'
+          placeholder='Rechercher des produits'
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}>
+        </input>
         <div className='container'>
-          {products.map((product) => (
+          {filteredProduct.map((product) => (
             <div key={product.id}>
               <h2>{product.name}</h2>
               <p>Prix : {product.price} €</p>

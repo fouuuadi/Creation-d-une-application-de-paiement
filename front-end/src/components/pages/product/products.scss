@@ -1,54 +1,74 @@
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .tilte-products {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.container > div {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  
-    &:hover {
-      transform: translateY(-5px);
-    }
-  
-    h2 {
-      font-size: 1.5rem;
-      margin: 10px 0;
-    }
-  
-    p {
-      font-size: 1rem;
-      margin: 5px 0;
-    }
-  
-    .button {
-      margin-top: 10px;
-    }
-  
-    .button > span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      .svg-inline--fa {
-        margin-right: 5px;
-        font-size: 1.2rem;
-      }
+.search {
+  width: 17%;
+  /* Réglez la largeur comme vous le souhaitez */
+  margin: 0 auto;
+  /* Pour centrer horizontalement */
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+  display: block;
+  /* Assurez-vous qu'il s'agit d'un élément de bloc pour qu'il se comporte correctement */
+  margin-left: auto;
+  /* Pour centrer horizontalement */
+  margin-right: auto;
+  /* Pour centrer horizontalement */
+}
+
+.container>div {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 5px 0;
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+
+  .button>span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .svg-inline--fa {
+      margin-right: 5px;
+      font-size: 1.2rem;
     }
   }
+}
