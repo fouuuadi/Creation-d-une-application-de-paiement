@@ -1,39 +1,46 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 import Button from "../../button/button default";
 import HeaderPayment from "../../layout/header/header_paiement/headerPayment";
 
 
 const Payment = () => {
-    const [formData, setFormData] = useState({
-        cardNumber: '',
-        cardHolder: '',
-        expirationDate: '',
-        cvv: '',
-    });
+    // const [formData, setFormData] = useState({
+    //     cardNumber: '',
+    //     cardHolder: '',
+    //     expirationDate: '',
+    //     cvv: '',
+    // });
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormData({ ...formData, [name]: value });
+    // };
 
+    // ...
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Ajoutez ici la logique pour traiter le paiement avec les données du formulaire
-        console.log('Données du formulaire soumises :', formData);
+
+        const basket = JSON.parse(localStorage.getItem('basket'));
+
+        const total_price = basket.reduce((acc, product) => acc + product.price * product.quantity, 0);
+
+        const orderData = {
+            total_price,
+            order_date: new Date().toISOString(), // Utilisez la date et l'heure actuelles
+        };
+
+        axios.post('http://localhost:3001/thebradery/createOrder', orderData)
+            .then((response) => {
+                console.log('Commande enregistrée avec succès :', response.data);
+
+                // Effacez le panier après avoir enregistré la commande
+                localStorage.removeItem('basket');
+            })
+            .catch((error) => {
+                console.error("Erreur lors de l'enregistrement de la commande : ", error);
+      });
     };
-
-    useEffect(() => {
-        //requête Post pour envoyer les produits a la Bdd
-        axios.post('http://localhost:3001/thebradery/payment')
-          .then((response) => {
-            setProducts(response.data)
-            //console.log(response.data);
-          })
-          .catch((error) => {
-            console.error('Erreur lors de la récupération des produits :', error);
-          });
-      }, []);
-
 
 
     return (
@@ -47,8 +54,8 @@ const Payment = () => {
                         <input
                             type="text"
                             name="cardNumber"
-                            value={formData.cardNumber}
-                            onChange={handleInputChange}
+                            // value={formData.cardNumber}
+                            // onChange={handleInputChange}
                             placeholder="1234 5678 9012 3456"
                         />
                     </div>
@@ -57,8 +64,8 @@ const Payment = () => {
                         <input
                             type="text"
                             name="cardHolder"
-                            value={formData.cardHolder}
-                            onChange={handleInputChange}
+                            // value={formData.cardHolder}
+                            // onChange={handleInputChange}
                             placeholder="John Doe"
                         />
                     </div>
@@ -67,8 +74,8 @@ const Payment = () => {
                         <input
                             type="text"
                             name="expirationDate"
-                            value={formData.expirationDate}
-                            onChange={handleInputChange}
+                            // value={formData.expirationDate}
+                            // onChange={handleInputChange}
                             placeholder="MM/YY"
                         />
                     </div>
@@ -77,8 +84,8 @@ const Payment = () => {
                         <input
                             type="text"
                             name="cvv"
-                            value={formData.cvv}
-                            onChange={handleInputChange}
+                            // value={formData.cvv}
+                            // onChange={handleInputChange}
                             placeholder="123"
                         />
                     </div>

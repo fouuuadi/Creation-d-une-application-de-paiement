@@ -4,6 +4,7 @@ const connection = require("../db")
 
 router.post("/allProducts", async(req, res) => {
     try {
+
         const queryAllProducts = "SELECT * FROM products";
         connection.query(queryAllProducts, (error, results) => {
             if(error) {
