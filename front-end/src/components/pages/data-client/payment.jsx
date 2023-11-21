@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import axios from 'axios';
-import Button from "../../button/button default";
 import HeaderPayment from "../../layout/header/header_paiement/headerPayment";
+import { useNavigate } from "react-router-dom";
 
 
 const Payment = () => {
+
+    const navigate = useNavigate();
     // const [formData, setFormData] = useState({
     //     cardNumber: '',
     //     cardHolder: '',
@@ -23,19 +25,15 @@ const Payment = () => {
 
         const basket = JSON.parse(localStorage.getItem('basket'));
 
-        const total_price = basket.reduce((acc, product) => acc + product.price * product.quantity, 0);
+    
 
-        const orderData = {
-            total_price,
-            order_date: new Date().toISOString(), // Utilisez la date et l'heure actuelles
-        };
-
-        axios.post('http://localhost:3001/thebradery/createOrder', orderData)
+        axios.post('http://localhost:3001/thebradery/createOrder', basket)
             .then((response) => {
                 console.log('Commande enregistrée avec succès :', response.data);
 
                 // Effacez le panier après avoir enregistré la commande
                 localStorage.removeItem('basket');
+                navigate('/produits');
             })
             .catch((error) => {
                 console.error("Erreur lors de l'enregistrement de la commande : ", error);
